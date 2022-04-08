@@ -1,0 +1,100 @@
+body{
+    background:lightgrey;
+    font-family:"Helvetica Neue",Helvetica, Arial;
+}
+
+
+.details-container {
+  height: 5rem;
+  overflow-y: scroll;
+}
+
+/*
+    Below is all of the footer CS
+*/
+.stickyfooter summary {
+    cursor: pointer;
+    /* remove the default arrow */
+    list-style: none;
+}
+
+/* this will replace the default arrow and style it a little */
+.stickyfooter details .footertitle:before {
+    content: "+"; 
+    font-size: 1.5em; 
+    font-weight: bold; 
+    margin: 0 25px 0 0;
+    padding: 0; 
+    width: 40px;
+    /* this will keep the header from shifting when opened or closed */
+    font-family:'Courier New', monospace;
+}
+
+/* this is our "open" symbol */
+.stickyfooter details[open] .footertitle:before {
+    content: "-";
+    margin: 0 25px 0 0;
+}
+
+/*
+    floating, sticky, footer...
+
+    Keeps a footer at the bottom of the page and
+    floats it above the content. The visual effect
+    is that the content will scroll behind it.
+*/
+.stickyfooter-container {
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+}
+
+.stickyfooter {
+    /* relative size, centering, and perceived position */
+    width: 90%;
+    margin-bottom: 1.5%;
+    /* set the max height of the footer, this 
+        will help show the content going past
+        bottom of the page.
+
+        NOTE: This cannot be a "relative" value, 
+        like percentages. That is because the height 
+        of the container (.details-container) is set 
+        to 5rem.
+    */
+    max-height: 25rem;
+
+    /* this will add a scoll bar to the whole footer, and
+        it'a visible all of the time. This is impractical.
+    overflow-y: scroll;
+    */
+
+    /* border and color */
+    border: 3px solid black;
+    background-color: grey;
+    /* keep the footer at the bottom */
+    flex-wrap: wrap;
+    position: fixed;
+    z-index: 9999;
+    bottom: 0;
+}
+
+.footertitle, .footerbody {
+    font-family:"Helvetica Neue",Helvetica, Arial;
+}
+
+.footertitle {
+    text-align: center;
+    color: white;
+}
+
+.footerbody {
+    font-size: small;
+    width: 90%;
+    margin-left: 5%;
+}
+
+.footertext {
+    color:black;
+}
+

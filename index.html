@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta name="robots" content="noindex,nofollow">	
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <meta name="description" content="Demonstration of a scrollbar within summary/details tags"/>
+    <meta name="author" content="Jim Motyl - github.com/jxmot"/>
+    <meta name="repository" content="github.com/jxmot/scrollable-summary_details"/>
+
+    <title>How To - details & summary with scrolling</title>
+    <!-- Ever have a problem where it seems like 
+         your CHANGED css files aren't loading? 
+         This is one way of solving that problem, 
+         especially when meta tags or htaccess 
+         changes haven't solved the issue.
+    -->
+    <script>
+        // place this in the the <head>, it will create 
+        // something like this - <link href="./index.css?453981" type="text/css" rel="stylesheet">
+        // where the "?453981" query will force the file 
+        // to load and not get stopped by caching.
+        var style = document.createElement('link');
+        style.href = './index.css' + '?' + Math.floor(Math.random() * 100000) + 1;
+        style.type = 'text/css';
+        style.rel = 'stylesheet';
+        document.getElementsByTagName('head')[0].append(style);
+    </script>
+</head>
+<body>
+    <p>
+        The goal here was to create summary/details content where the <i>height</i> 
+        of the details content is <i>larger</i> than the height of its container.
+        <br><br>
+        Normally this is not an issue because when a summary/details is expanded,
+        because it just shifts everything below it downwards.
+    </p>
+    <p>
+        Without any scroll bar the text expands and increases the 
+        height of the page. 
+    </p>
+    <p>
+        <details>
+            <summary>
+                Here is what it looks like without the containing <strong>&lt;div&gt;</strong>,
+                which also contained the the scroll bar.
+            </summary>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Massa tincidunt dui ut ornare lectus sit amet est placerat. Non nisi est sit amet facilisis magna. Eget nulla facilisi etiam dignissim diam quis. At volutpat diam ut venenatis tellus in. Duis convallis convallis tellus id interdum velit. Quis enim lobortis scelerisque fermentum dui. Fermentum odio eu feugiat pretium nibh ipsum consequat. Nibh praesent tristique magna sit amet purus gravida quis blandit. Commodo nulla facilisi nullam vehicula ipsum a arcu cursus. Et sollicitudin ac orci phasellus egestas tellus rutrum tellus pellentesque. Orci nulla pellentesque dignissim enim sit amet. Fringilla est ullamcorper.
+            </p>
+            <p>
+                <strong>Can you scroll to see me?</strong>Senectus et netus et malesuada fames. Faucibus scelerisque eleifend donec pretium vulputate sapien nec sagittis aliquam. Faucibus in ornare quam viverra orci sagittis. Sapien pellentesque habitant morbi tristique senectus et netus. <strong>Can you scroll to see me too???</strong>
+            </p>
+        </details>
+    </p>
+    <p>
+        This could have use when mulitple summary/details content is desired 
+        but there is limited vertical space or this could allow for consistent 
+        vertical sizing.
+    </p>
+    <p>
+        <details>
+            <summary>
+                The details content is height constrained and has a vertical 
+                scroll bar. The text will expand and increase the height of 
+                the page but not as much.
+            </summary>
+            <div class="details-container" style="border: 2px solid black;">
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Massa tincidunt dui ut ornare lectus sit amet est placerat. Non nisi est sit amet facilisis magna. Eget nulla facilisi etiam dignissim diam quis. At volutpat diam ut venenatis tellus in. Duis convallis convallis tellus id interdum velit. Quis enim lobortis scelerisque fermentum dui. Fermentum odio eu feugiat pretium nibh ipsum consequat. Nibh praesent tristique magna sit amet purus gravida quis blandit. Commodo nulla facilisi nullam vehicula ipsum a arcu cursus. Et sollicitudin ac orci phasellus egestas tellus rutrum tellus pellentesque. Orci nulla pellentesque dignissim enim sit amet. Fringilla est ullamcorper.
+                </p>
+                <p>
+                    <strong>Can you scroll to see me?</strong>Senectus et netus et malesuada fames. Faucibus scelerisque eleifend donec pretium vulputate sapien nec sagittis aliquam. Faucibus in ornare quam viverra orci sagittis. Sapien pellentesque habitant morbi tristique senectus et netus. <strong>Can you scroll to see me too???</strong>
+                </p>
+            </div>
+        </details>
+    </p>
+    <br><hr><br>
+    <p>
+        
+    </p>
+    <!-- need some padding to be able to scroll this paragraph above the footer -->
+    <p style="padding-bottom:20rem;">
+        The maximum vertical height of the footer is set to 25rem,  
+        this is intentional. It is the height it will use when the 
+        summary/details are expanded. The height of the <strong>&lt;div&gt;</strong>
+        which contains the details is 5rem.
+    </p>
+    <div class="stickyfooter-container">
+        <footer class="stickyfooter">
+            <details>
+                <summary>
+                    <p id="footertitle" class="footertitle">
+                        This footer will expand <strong>upwards</strong>.
+                    </p>
+                </summary>
+                <div class="details-container">
+                    <p id="footerbody" class="footerbody footertext">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Massa tincidunt dui ut ornare lectus sit amet est placerat. Non nisi est sit amet facilisis magna. Eget nulla facilisi etiam dignissim diam quis. At volutpat diam ut venenatis tellus in. Duis convallis convallis tellus id interdum velit. Quis enim lobortis scelerisque fermentum dui. Fermentum odio eu feugiat pretium nibh ipsum consequat. Nibh praesent tristique magna sit amet purus gravida quis blandit. Commodo nulla facilisi nullam vehicula ipsum a arcu cursus. Et sollicitudin ac orci phasellus egestas tellus rutrum tellus pellentesque. Orci nulla pellentesque dignissim enim sit amet. Fringilla est ullamcorper.
+                        <br><br>
+                        <strong>Can you scroll to see me? </strong> 
+                        Senectus et netus et malesuada fames. Faucibus scelerisque eleifend donec pretium vulputate sapien nec sagittis aliquam. Faucibus in ornare quam viverra orci sagittis. Sapien pellentesque habitant morbi tristique senectus et netus.
+                        <strong>Can you scroll to see me too???</strong>
+                    </p>
+                </div>
+            </details>
+        </footer>
+    </div>
+</body>
+</html>
